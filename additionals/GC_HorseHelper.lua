@@ -64,10 +64,11 @@ function GC_HorseHelper:hourChanged()
 						if animal.subType ~= nil and animal.subType.livery ~= nil and animal.subType.livery.income  ~= nil then
 							price = animal.subType.livery.income * 0.3;
 							animal.ridingScale = 1;
-						else							
-							animal.ridingTimerSent  = animal.DAILY_TARGET_RIDING_TIME;
-							animal.ridingTimer  = animal.DAILY_TARGET_RIDING_TIME;
 						end;
+
+						--horse fitness should be updated regardless of Seasons
+						animal.ridingTimerSent = animal.DAILY_TARGET_RIDING_TIME;
+						animal.ridingTimer = animal.DAILY_TARGET_RIDING_TIME;
 
 						moneyToOwner[farmId] = moneyToOwner[farmId] + price;
 					end;
